@@ -1,0 +1,29 @@
+[
+  {
+    "id": "example-show-one",
+    "show": "Example Show Name",
+    "day": "monday",
+    "releaseTimeUTC": "12:00",
+    "note": "Releases a few hours after raws drop — may shift if raws are delayed.",
+    "tags": ["Softsubs", "Weekly", "1080p"],
+    "status": "ongoing"
+  },
+  {
+    "id": "example-show-two",
+    "show": "Another Show Name",
+    "day": "wednesday",
+    "releaseTimeUTC": "16:30",
+    "note": "English softsubs provided. High bitrate release.",
+    "tags": ["Softsubs", "Weekly", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "example-show-three",
+    "show": "Finished Show Name",
+    "day": "friday",
+    "releaseTimeUTC": "10:00",
+    "note": "Season 1 completed. All episodes available on batch tracker.",
+    "tags": ["Completed", "1080p", "Batch"],
+    "status": "completed"
+  }
+]

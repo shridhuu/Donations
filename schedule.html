@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shridhuu | Release Schedule</title>
+
+  <!-- Google Fonts: JetBrains Mono & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- QRCode.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <div class="site-container">
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <a href="index.html" class="brand-logo">
+        <span class="bracket">[</span>shridhuu<span class="bracket">]</span>
+      </a>
+
+      <div class="nav-group">
+        <nav class="nav-links">
+          <a href="schedule.html" class="nav-link active">sched.</a>
+          <span class="nav-separator">|</span>
+          <a href="index.html" class="nav-link">donate</a>
+          <span class="nav-separator">|</span>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+          <span class="nav-separator">|</span>
+          <a href="#status" class="nav-link">status</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
+          <i data-lucide="moon" id="theme-icon"></i>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+      <!-- Intro Panel Band -->
+      <section class="panel-band" id="schedule">
+        <div class="eyebrow">// Release Schedule</div>
+        <h1 class="main-heading">Weekly Lineup.</h1>
+        <p class="intro-desc">
+          Pick a day to see what's releasing. Times are shown in your local time zone, and each card counts down live to the next release.
+        </p>
+      </section>
+
+      <!-- Schedule Section -->
+      <section class="schedule-section">
+        <!-- Day Filter Tabs -->
+        <div class="day-tabs" id="dayTabs">
+          <!-- Dynamic Tabs Rendered by script.js -->
+        </div>
+
+        <!-- Schedule Cards Grid -->
+        <div class="schedule-grid" id="scheduleGrid">
+          <!-- Dynamic Cards Rendered by script.js -->
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>shridhuu &copy; 2026 &bull; Crafted for the Community</p>
+    </footer>
+
+  </div>
+
+  <!-- Tooltip Toast Notification -->
+  <div id="toast" class="tooltip-toast">Address copied to clipboard!</div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
