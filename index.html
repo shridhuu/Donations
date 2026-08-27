@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shridhuu | Donate & Support</title>
+
+  <!-- Google Fonts: JetBrains Mono & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- QRCode.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+  <div class="site-container">
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <a href="#" class="brand-logo">
+        <span class="bracket">[</span>shridhuu<span class="bracket">]</span>
+      </a>
+
+      <div class="nav-group">
+        <nav class="nav-links">
+          <a href="#schedule" class="nav-link">sched.</a>
+          <span class="nav-separator">|</span>
+          <a href="#donate" class="nav-link active">donate</a>
+          <span class="nav-separator">|</span>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+          <span class="nav-separator">|</span>
+          <a href="#status" class="nav-link">status</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
+          <i data-lucide="moon" id="theme-icon"></i>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+      <!-- Intro Panel Band -->
+      <section class="panel-band" id="donate">
+        <div class="eyebrow">// Support The Team</div>
+        <h1 class="main-heading">Buy Me a Coffee.</h1>
+        <p class="intro-desc">
+          Shridhuu's subtitles stay free to use. If you'd like to help cover hosting, tools, and the hours that go into every release, you can support Shridhuu directly through any of the channels below.
+        </p>
+      </section>
+
+      <!-- Payment Methods Section -->
+      <section class="donate-section">
+        <h2 class="section-title">Payment Methods</h2>
+        
+        <div class="donate-rows-container">
+
+          <!-- Row 1: Binance ID -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="wallet"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">Binance ID</span>
+                  <span class="row-address-text">1056725256</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="1056725256" aria-label="Copy Binance ID">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy ID</span>
+                </button>
+                <button class="btn-qr" data-qr-label="Binance ID" data-qr-address="1056725256" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">1056725256</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: USDT (TRC20) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="coins"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">USDT (TRC20)</span>
+                  <span class="row-address-text" title="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB">TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB" aria-label="Copy USDT TRC20 Address">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy</span>
+                </button>
+                <button class="btn-qr" data-qr-label="USDT (TRC20)" data-qr-address="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: USDT (BEP20) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="coins"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">USDT (BEP20)</span>
+                  <span class="row-address-text" title="0x02bfbddda8088a34c66ec4083b93e44a2811e186">0x02bfbddda8088a34c66ec4083b93e44a2811e186</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="0x02bfbddda8088a34c66ec4083b93e44a2811e186" aria-label="Copy USDT BEP20 Address">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy</span>
+                </button>
+                <button class="btn-qr" data-qr-label="USDT (BEP20)" data-qr-address="0x02bfbddda8088a34c66ec4083b93e44a2811e186" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">0x02bfbddda8088a34c66ec4083b93e44a2811e186</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 4: Solana (SOL) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="zap"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">Solana (SOL)</span>
+                  <span class="row-address-text" title="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o">4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o" aria-label="Copy Solana Address">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy</span>
+                </button>
+                <button class="btn-qr" data-qr-label="Solana (SOL)" data-qr-address="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 5: Bitcoin (BTC) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="bitcoin"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">Bitcoin (BTC)</span>
+                  <span class="row-address-text" title="17qtb6zNXH19kh6GgZKfgQ2Dq6kjZfXzSq">17qtb6zNXH19kh6GgZKfgQ2Dq6kjZfXzSq</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="17qtb6zNXH19kh6GgZKfgQ2Dq6kjZfXzSq" aria-label="Copy Bitcoin Address">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy</span>
+                </button>
+                <button class="btn-qr" data-qr-label="Bitcoin (BTC)" data-qr-address="17qtb6zNXH19kh6GgZKfgQ2Dq6kjZfXzSq" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">17qtb6zNXH19kh6GgZKfgQ2Dq6kjZfXzSq</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 6: Litecoin (LTC) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="circle-dollar-sign"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">Litecoin (LTC)</span>
+                  <span class="row-address-text" title="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm">Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <button class="btn-copy" data-copy="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm" aria-label="Copy Litecoin Address">
+                  <i data-lucide="copy" style="width:14px; height:14px;"></i>
+                  <span>Copy</span>
+                </button>
+                <button class="btn-qr" data-qr-label="Litecoin (LTC)" data-qr-address="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm" aria-label="Toggle QR Code">
+                  <i data-lucide="qr-code"></i>
+                </button>
+              </div>
+            </div>
+            <!-- Inline QR Expand Container -->
+            <div class="qr-inline-panel" style="display: none;">
+              <div class="qr-inline-box">
+                <div class="qr-code-target"></div>
+                <span class="qr-address-label">Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 7: Ko-fi / Platform (Disabled) -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row row-disabled">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="coffee"></i>
+                </div>
+                <div class="row-info">
+                  <div class="row-label">
+                    Ko-fi / Fiat Platform
+                    <span class="badge-unavailable">Unavailable for now</span>
+                  </div>
+                  <span class="row-address-text">Fiat payment platform currently offline</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="btn-contact">
+                  <i data-lucide="message-square" style="width:14px; height:14px;"></i>
+                  <span>Contact @shridhuu</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 8: Other Methods -->
+          <div class="donate-row-wrapper">
+            <div class="donate-row">
+              <div class="row-left">
+                <div class="row-icon-box">
+                  <i data-lucide="help-circle"></i>
+                </div>
+                <div class="row-info">
+                  <span class="row-label">Other Payment Methods</span>
+                  <span class="row-address-text">Need to donate via another service or currency?</span>
+                </div>
+              </div>
+              <div class="row-actions">
+                <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="btn-contact">
+                  <i data-lucide="external-link" style="width:14px; height:14px;"></i>
+                  <span>Contact @shridhuu on Discord</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Donator Perks Section -->
+      <section class="perks-section">
+        <h2 class="section-title">Donator Perks</h2>
+
+        <div class="perks-grid">
+
+          <!-- Card 1: Supporter Role -->
+          <div class="perk-card">
+            <div class="perk-header">
+              <span class="perk-icon-wrapper"><i data-lucide="tag"></i></span>
+              <span>Supporter Role</span>
+            </div>
+            <ul class="perk-list">
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Receive the <strong>Supporter Role</strong> on Discord for approximately 1 month.</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Includes 1 month of full access to all <strong>Donator Perks</strong>.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Exclusive Content -->
+          <div class="perk-card">
+            <div class="perk-header">
+              <span class="perk-icon-wrapper"><i data-lucide="tv"></i></span>
+              <span>Exclusive Content</span>
+            </div>
+            <ul class="perk-list">
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Access to our exclusive <strong>supporter-only content channel</strong>.</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Get early access to content shared <strong>specifically for supporters</strong>.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Translation Requests -->
+          <div class="perk-card">
+            <div class="perk-header">
+              <span class="perk-icon-wrapper"><i data-lucide="globe"></i></span>
+              <span>Translation Requests</span>
+            </div>
+            <ul class="perk-list">
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Donators contributing <strong>$8.99 or more</strong> can request a translation for any show of their choice.</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Translation requests are limited to <strong>up to 26 episodes</strong> per request.</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Larger requests take time, so this limit helps prevent the workload from becoming unmanageable.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 4: Supporter Discussions -->
+          <div class="perk-card">
+            <div class="perk-header">
+              <span class="perk-icon-wrapper"><i data-lucide="message-square"></i></span>
+              <span>Supporter Discussions</span>
+            </div>
+            <ul class="perk-list">
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>Access to the <strong>Supporter-only discussion channel</strong>.</span>
+              </li>
+              <li>
+                <i data-lucide="check" class="check-icon"></i>
+                <span>A dedicated place to discuss shows, translations, upcoming projects, and interact directly with the team.</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Appreciation Closing Callout Box -->
+        <div class="closing-callout">
+          <div class="callout-heart">
+            <i data-lucide="heart"></i>
+          </div>
+          <p class="callout-text">
+            "Every donation is appreciated, regardless of the amount. Your support helps us keep the server running and continue providing translations and content for everyone."
+          </p>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>shridhuu &copy; 2026 &bull; Crafted for the Community</p>
+    </footer>
+
+  </div>
+
+  <!-- Tooltip Toast Notification -->
+  <div id="toast" class="tooltip-toast">Address copied to clipboard!</div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
