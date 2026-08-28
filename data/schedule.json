@@ -6,7 +6,7 @@
     "day": "monday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K"],
     "status": "ongoing"
   },
   {
@@ -16,7 +16,7 @@
     "day": "tuesday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K", "4K HBR"],
     "status": "ongoing"
   },
   {
@@ -36,7 +36,7 @@
     "day": "thursday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K"],
     "status": "ongoing"
   },
   {
@@ -46,7 +46,7 @@
     "day": "friday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p HBR", "4K HBR"],
     "status": "ongoing"
   },
   {
@@ -56,7 +56,7 @@
     "day": "friday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K"],
     "status": "ongoing"
   },
   {
@@ -66,7 +66,7 @@
     "day": "saturday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K", "4K HDR", "4K Dolby Vision"],
     "status": "ongoing"
   },
   {
@@ -76,7 +76,7 @@
     "day": "saturday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P"],
+    "tags": ["Softsubs", "Weekly", "1080p"],
     "status": "ongoing"
   },
   {
@@ -86,7 +86,7 @@
     "day": "sunday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K", "4K Dolby Vision"],
     "status": "ongoing"
   },
   {
@@ -96,7 +96,7 @@
     "day": "sunday",
     "releaseTimeUTC": "15:30",
     "note": "Releases 3–6h after raws (may delay if busy)",
-    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "tags": ["Softsubs", "Weekly", "1080p", "4K"],
     "status": "ongoing"
   }
 ]
