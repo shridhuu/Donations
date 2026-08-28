@@ -395,13 +395,14 @@ document.addEventListener('DOMContentLoaded', () => {
       filteredShows.forEach(show => {
         const card = document.createElement('div');
         const isCompleted = show.status === 'completed';
+        const isRest = show.status === 'rest';
         card.className = `schedule-card ${isCompleted ? 'completed' : ''}`;
 
-        const nextReleaseDate = isCompleted ? null : calculateNextReleaseDate(show.day, show.releaseTimeUTC);
-        const localTimeFormatted = show.releaseTimeUTC ? formatLocalTime(show.releaseTimeUTC) : 'Non-weekly';
+        const nextReleaseDate = (isCompleted || isRest) ? null : calculateNextReleaseDate(show.day, show.releaseTimeUTC);
+        const localTimeFormatted = isRest ? 'Rest Day' : (show.releaseTimeUTC ? formatLocalTime(show.releaseTimeUTC) : 'Non-weekly');
         const initialCountdown = isCompleted 
           ? { text: 'Completed', isNow: false } 
-          : formatCountdown(nextReleaseDate);
+          : (isRest ? { text: 'Resting', isNow: false } : formatCountdown(nextReleaseDate));
 
         // Tags HTML
         const tagsHtml = (show.tags || [])
@@ -420,6 +421,13 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>Completed</span>
             </span>
           `;
+        } else if (isRest) {
+          badgeHtml = `
+            <span class="schedule-countdown-badge resting-badge">
+              <i data-lucide="coffee"></i>
+              <span>Resting</span>
+            </span>
+          `;
         } else if (show.day === 'nonweekly' || !show.releaseTimeUTC) {
           badgeHtml = `
             <span class="schedule-countdown-badge">
@@ -436,20 +444,30 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
         }
 
+        // Image thumbnail HTML
+        const imageHtml = show.image 
+          ? `<img src="${show.image}" alt="${show.show || 'Show Poster'}" class="schedule-thumb" loading="lazy" onerror="this.style.display='none'">` 
+          : '';
+
         card.innerHTML = `
           <div class="schedule-top-row">
             <div class="schedule-time-box">
               <div class="schedule-local-time">
-                <i data-lucide="clock-3"></i>
+                <i data-lucide="${isRest ? 'coffee' : 'clock-3'}"></i>
                 <span>${localTimeFormatted}</span>
               </div>
-              ${show.releaseTimeUTC ? `<span class="schedule-utc-time">${show.releaseTimeUTC} UTC</span>` : ''}
+              ${(show.releaseTimeUTC && !isRest) ? `<span class="schedule-utc-time">${show.releaseTimeUTC} UTC</span>` : ''}
             </div>
             ${badgeHtml}
           </div>
 
-          <h3 class="schedule-show-name">${show.show || 'Untitled Show'}</h3>
-          ${noteHtml}
+          <div class="schedule-main-info">
+            ${imageHtml}
+            <div class="schedule-text-info">
+              <h3 class="schedule-show-name">${show.show || 'Untitled Show'}</h3>
+              ${noteHtml}
+            </div>
+          </div>
 
           ${tagsHtml ? `<div class="schedule-tags">${tagsHtml}</div>` : ''}
         `;

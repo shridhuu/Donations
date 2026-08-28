@@ -1,29 +1,102 @@
 [
   {
-    "id": "example-show-one",
-    "show": "Example Show Name",
+    "id": "swallowed-star-mon",
+    "show": "Swallowed Star",
+    "image": "https://image.tmdb.org/t/p/original/dShQsQFLSivwCIRjC7crsnznPXY.jpg",
     "day": "monday",
     "releaseTimeUTC": "12:00",
-    "note": "Releases a few hours after raws drop — may shift if raws are delayed.",
-    "tags": ["Softsubs", "Weekly", "1080p"],
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P"],
     "status": "ongoing"
   },
   {
-    "id": "example-show-two",
-    "show": "Another Show Name",
+    "id": "guan-tue",
+    "show": "GuAn",
+    "image": "https://image.tmdb.org/t/p/original/hizh0OcUTNFJzSxPH0jtHyWNDCi.jpg",
+    "day": "tuesday",
+    "releaseTimeUTC": "12:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "shridhuu-needs-rest-wed",
+    "show": "@Shridhuu Needs Rest",
+    "image": "https://cdn.discordapp.com/avatars/1403304956924264468/19f2a6ec3101d1ccbfff34470bcef51d.png?size=512",
     "day": "wednesday",
-    "releaseTimeUTC": "16:30",
-    "note": "English softsubs provided. High bitrate release.",
-    "tags": ["Softsubs", "Weekly", "4K"],
+    "releaseTimeUTC": "",
+    "note": "No subbing or posting today, I need rest",
+    "tags": ["Rest"],
+    "status": "rest"
+  },
+  {
+    "id": "perfect-world-thu",
+    "show": "Perfect World",
+    "image": "https://image.tmdb.org/t/p/original/qy60bm9admmgpkmcPeW4BvRjjVm.jpg",
+    "day": "thursday",
+    "releaseTimeUTC": "13:30",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
     "status": "ongoing"
   },
   {
-    "id": "example-show-three",
-    "show": "Finished Show Name",
+    "id": "jade-dynasty-fri",
+    "show": "Jade Dynasty",
+    "image": "https://image.tmdb.org/t/p/original/oOy0PskfCQyWwsQVdHyM2PoN9H4.jpg",
     "day": "friday",
     "releaseTimeUTC": "10:00",
-    "note": "Season 1 completed. All episodes available on batch tracker.",
-    "tags": ["Completed", "1080p", "Batch"],
-    "status": "completed"
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "the-great-ruler-fri",
+    "show": "The Great Ruler",
+    "image": "https://image.tmdb.org/t/p/original/6eI62O2pqkvwqjhLGd7EOHIPjq7.jpg",
+    "day": "friday",
+    "releaseTimeUTC": "12:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "good-day-to-ascend-sat",
+    "show": "A Good Day to Ascend",
+    "image": "https://image.tmdb.org/t/p/original/x2pQPKj5EeXPxw7VCSq1WjCEJgL.jpg",
+    "day": "saturday",
+    "releaseTimeUTC": "11:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "beyond-times-gaze-sat",
+    "show": "Beyond Time's Gaze",
+    "image": "https://image.tmdb.org/t/p/original/vF5RXqbpLTPHwwJWywxx5nZ6nTs.jpg",
+    "day": "saturday",
+    "releaseTimeUTC": "12:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P"],
+    "status": "ongoing"
+  },
+  {
+    "id": "golden-curse-sun",
+    "show": "Golden Curse",
+    "image": "https://image.tmdb.org/t/p/original/mCrTWs2VDsg4cV7j12ykJeDG85a.jpg",
+    "day": "sunday",
+    "releaseTimeUTC": "10:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
+  },
+  {
+    "id": "renegade-immortal-sun",
+    "show": "Renegade Immortal",
+    "image": "https://image.tmdb.org/t/p/original/mCt5qgkOYEvuHSiSwNByMv6LMoB.jpg",
+    "day": "sunday",
+    "releaseTimeUTC": "15:00",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080P", "4K"],
+    "status": "ongoing"
   }
 ]
