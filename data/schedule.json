@@ -80,6 +80,16 @@
     "status": "ongoing"
   },
   {
+    "id": "battle-through-the-heavens-sun",
+    "show": "Battle Through the Heavens",
+    "image": "https://image.tmdb.org/t/p/original/oyoahIcdamTXwjIaL3CqZ1v5CLl.jpg",
+    "day": "sunday",
+    "releaseTimeUTC": "15:30",
+    "note": "Releases 3–6h after raws (may delay if busy)",
+    "tags": ["Softsubs", "Weekly", "1080p HBR", "4K"],
+    "status": "ongoing"
+  },
+  {
     "id": "golden-curse-sun",
     "show": "Golden Curse",
     "image": "https://image.tmdb.org/t/p/original/mCrTWs2VDsg4cV7j12ykJeDG85a.jpg",
