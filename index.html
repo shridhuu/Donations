@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
@@ -19,6 +22,7 @@
   <!-- QRCode.js Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
+
 <body>
 
   <div class="site-container">
@@ -56,32 +60,160 @@
         <div class="eyebrow">// Support The Team</div>
         <h1 class="main-heading">Buy Me a Coffee.</h1>
         <p class="intro-desc">
-          Shridhuu's subtitles stay free to use. If you'd like to help cover hosting, tools, and the hours that go into every release, you can support Shridhuu directly through any of the channels below.
+          Shridhuu's subtitles stay free to use. If you'd like to help cover hosting, tools, and the hours that go into
+          every release, you can support Shridhuu directly through any of the channels below.
         </p>
       </section>
 
       <!-- Monthly Goal Progress Card -->
-      <div class="progress-card" id="progressCard" data-current="5" data-target="10">
+      <div class="progress-card" id="progressCard" data-current="0" data-target="50">
         <div class="progress-header">
           <div class="progress-title-box">
             <i data-lucide="target"></i>
             <span>Monthly Goal</span>
           </div>
-          <span class="progress-amount">$5 / $10</span>
+          <span class="progress-amount">$0 / $50</span>
         </div>
         <div class="progress-track">
           <div class="progress-fill"></div>
         </div>
         <div class="progress-footer">
           <span>Target Progress</span>
-          <span class="progress-percent">50%</span>
+          <span class="progress-percent">0%</span>
+        </div>
+      </div>
+
+      <!-- PC Upgrade Goal Progress Card -->
+      <div class="progress-card pc-goal-card" id="pcProgressCard" data-current="50" data-target="1000">
+        <div class="progress-header">
+          <div class="progress-title-box">
+            <i data-lucide="cpu"></i>
+            <span>PC Upgrade Goal</span>
+          </div>
+          <span class="progress-amount">$50 / $1,000</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill"></div>
+        </div>
+        <div class="progress-footer">
+          <span>Target Progress</span>
+          <span class="progress-percent">5%</span>
+        </div>
+
+        <!-- Hardware Specs Breakdown -->
+        <div class="pc-specs-wrapper">
+          <div class="pc-specs-header">
+            <div class="pc-specs-header-title">
+              <i data-lucide="hard-drive"></i>
+              <span>Hardware Specifications & Target Build</span>
+            </div>
+          </div>
+
+          <div class="pc-specs-grid">
+            <!-- Current PC Specs -->
+            <div class="pc-spec-col current-rig">
+              <div class="spec-col-header">
+                <div class="spec-col-title">
+                  <i data-lucide="monitor"></i>
+                  <span>Current PC</span>
+                </div>
+                <span class="spec-badge current-badge">Active Rig</span>
+              </div>
+              <ul class="spec-list">
+                <li class="spec-item">
+                  <span class="spec-key">CPU</span>
+                  <span class="spec-val">Intel i5-6500</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-key">RAM</span>
+                  <span class="spec-val">16GB DDR4 3200 MT/s</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-key">GPU</span>
+                  <span class="spec-val">Intel HD Graphics 530</span>
+                </li>
+                <li class="spec-item">
+                  <span class="spec-key">Storage</span>
+                  <span class="spec-val">512GB NVMe + 1TB SATA SSD</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Upgrade Goal Specs -->
+            <div class="pc-spec-col target-rig">
+              <div class="spec-col-header">
+                <div class="spec-col-title">
+                  <i data-lucide="sparkles"></i>
+                  <span>🎯 Upgrade Goal</span>
+                </div>
+                <span class="spec-badge target-badge">Target Build</span>
+              </div>
+              <ul class="spec-list">
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">CPU</span>
+                    <span class="spec-val">AMD Ryzen 7 5700G</span>
+                  </div>
+                  <span class="spec-price">~$200</span>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">RAM</span>
+                    <span class="spec-val">32GB DDR4 3200 MT/s</span>
+                  </div>
+                  <div class="spec-sub-row">
+                    <span class="spec-note">Reuse existing 16GB + buy another 16GB stick</span>
+                    <span class="spec-price">~$120</span>
+                  </div>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">Motherboard</span>
+                    <span class="spec-val">GIGABYTE B550M Gaming X Wi-Fi 6</span>
+                  </div>
+                  <span class="spec-price">~$130</span>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">PSU</span>
+                    <span class="spec-val">850W</span>
+                  </div>
+                  <span class="spec-price">~$80–100</span>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">Storage</span>
+                    <span class="spec-val">Reuse the existing SSDs</span>
+                  </div>
+                  <span class="spec-badge-reuse">Reused</span>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">Monitor</span>
+                    <span class="spec-val">New 1440p 27-inch monitor</span>
+                  </div>
+                  <span class="spec-price">~$150</span>
+                </li>
+                <li class="spec-item">
+                  <div class="spec-main-row">
+                    <span class="spec-key">GPU</span>
+                    <span class="spec-val">AMD Radeon RX 9060 XT</span>
+                  </div>
+                  <div class="spec-sub-row">
+                    <span class="spec-note">if price drops; otherwise stick with 5700G iGPU</span>
+                    <span class="spec-price">~$700</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Payment Methods Section -->
       <section class="donate-section">
         <h2 class="section-title">Payment Methods</h2>
-        
+
         <div class="donate-rows-container">
 
           <!-- Row 1: Binance ID -->
@@ -101,7 +233,8 @@
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy ID</span>
                 </button>
-                <button class="btn-qr" data-qr-label="Binance ID" data-qr-address="https://app.binance.com/uni-qr/RxepWfWn" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="Binance ID"
+                  data-qr-address="https://app.binance.com/uni-qr/RxepWfWn" aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -124,15 +257,18 @@
                 </div>
                 <div class="row-info">
                   <span class="row-label">USDT (TRC20)</span>
-                  <span class="row-address-text" title="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB">TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB</span>
+                  <span class="row-address-text"
+                    title="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB">TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB</span>
                 </div>
               </div>
               <div class="row-actions">
-                <button class="btn-copy" data-copy="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB" aria-label="Copy USDT TRC20 Address">
+                <button class="btn-copy" data-copy="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB"
+                  aria-label="Copy USDT TRC20 Address">
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy</span>
                 </button>
-                <button class="btn-qr" data-qr-label="USDT (TRC20)" data-qr-address="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="USDT (TRC20)" data-qr-address="TEwCBpydE5T2sg7GAmRWTfp6YoHNQxjkGB"
+                  aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -155,15 +291,18 @@
                 </div>
                 <div class="row-info">
                   <span class="row-label">USDT (BEP20)</span>
-                  <span class="row-address-text" title="0x02bfbddda8088a34c66ec4083b93e44a2811e186">0x02bfbddda8088a34c66ec4083b93e44a2811e186</span>
+                  <span class="row-address-text"
+                    title="0x02bfbddda8088a34c66ec4083b93e44a2811e186">0x02bfbddda8088a34c66ec4083b93e44a2811e186</span>
                 </div>
               </div>
               <div class="row-actions">
-                <button class="btn-copy" data-copy="0x02bfbddda8088a34c66ec4083b93e44a2811e186" aria-label="Copy USDT BEP20 Address">
+                <button class="btn-copy" data-copy="0x02bfbddda8088a34c66ec4083b93e44a2811e186"
+                  aria-label="Copy USDT BEP20 Address">
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy</span>
                 </button>
-                <button class="btn-qr" data-qr-label="USDT (BEP20)" data-qr-address="0x02bfbddda8088a34c66ec4083b93e44a2811e186" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="USDT (BEP20)"
+                  data-qr-address="0x02bfbddda8088a34c66ec4083b93e44a2811e186" aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -186,15 +325,18 @@
                 </div>
                 <div class="row-info">
                   <span class="row-label">Solana (SOL)</span>
-                  <span class="row-address-text" title="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o">4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o</span>
+                  <span class="row-address-text"
+                    title="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o">4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o</span>
                 </div>
               </div>
               <div class="row-actions">
-                <button class="btn-copy" data-copy="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o" aria-label="Copy Solana Address">
+                <button class="btn-copy" data-copy="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o"
+                  aria-label="Copy Solana Address">
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy</span>
                 </button>
-                <button class="btn-qr" data-qr-label="Solana (SOL)" data-qr-address="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="Solana (SOL)"
+                  data-qr-address="4kjuTvZFWTcc7Xi4BCWuZ7ohBSzKG4N2FGnVxG2ZE39o" aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -217,15 +359,18 @@
                 </div>
                 <div class="row-info">
                   <span class="row-label">Bitcoin (BTC)</span>
-                  <span class="row-address-text" title="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr">17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr</span>
+                  <span class="row-address-text"
+                    title="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr">17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr</span>
                 </div>
               </div>
               <div class="row-actions">
-                <button class="btn-copy" data-copy="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr" aria-label="Copy Bitcoin Address">
+                <button class="btn-copy" data-copy="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr"
+                  aria-label="Copy Bitcoin Address">
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy</span>
                 </button>
-                <button class="btn-qr" data-qr-label="Bitcoin (BTC)" data-qr-address="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="Bitcoin (BTC)"
+                  data-qr-address="17bqkihdGwBLBoiB29ACXCUHs1GjaM9SWr" aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -248,15 +393,18 @@
                 </div>
                 <div class="row-info">
                   <span class="row-label">Litecoin (LTC)</span>
-                  <span class="row-address-text" title="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm">Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm</span>
+                  <span class="row-address-text"
+                    title="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm">Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm</span>
                 </div>
               </div>
               <div class="row-actions">
-                <button class="btn-copy" data-copy="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm" aria-label="Copy Litecoin Address">
+                <button class="btn-copy" data-copy="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm"
+                  aria-label="Copy Litecoin Address">
                   <i data-lucide="copy" style="width:14px; height:14px;"></i>
                   <span>Copy</span>
                 </button>
-                <button class="btn-qr" data-qr-label="Litecoin (LTC)" data-qr-address="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm" aria-label="Toggle QR Code">
+                <button class="btn-qr" data-qr-label="Litecoin (LTC)"
+                  data-qr-address="Lf2yTzovtS5wat1obWAmGtKftHb8JzuaGm" aria-label="Toggle QR Code">
                   <i data-lucide="qr-code"></i>
                 </button>
               </div>
@@ -369,7 +517,8 @@
             <ul class="perk-list">
               <li>
                 <i data-lucide="check" class="check-icon"></i>
-                <span>Donators contributing <strong>$8.99 or more</strong> can request a translation for any show of their choice.</span>
+                <span>Donators contributing <strong>$8.99 or more</strong> can request a translation for any show of
+                  their choice.</span>
               </li>
               <li>
                 <i data-lucide="check" class="check-icon"></i>
@@ -377,7 +526,8 @@
               </li>
               <li>
                 <i data-lucide="check" class="check-icon"></i>
-                <span>Larger requests take time, so this limit helps prevent the workload from becoming unmanageable.</span>
+                <span>Larger requests take time, so this limit helps prevent the workload from becoming
+                  unmanageable.</span>
               </li>
             </ul>
           </div>
@@ -395,7 +545,8 @@
               </li>
               <li>
                 <i data-lucide="check" class="check-icon"></i>
-                <span>A dedicated place to discuss shows, translations, upcoming projects, and interact directly with the team.</span>
+                <span>A dedicated place to discuss shows, translations, upcoming projects, and interact directly with
+                  the team.</span>
               </li>
             </ul>
           </div>
@@ -408,7 +559,8 @@
             <i data-lucide="heart"></i>
           </div>
           <p class="callout-text">
-            "Every donation is appreciated, regardless of the amount. Your support helps us keep the server running and continue providing translations and content for everyone."
+            "Every donation is appreciated, regardless of the amount. Your support helps us keep the server running and
+            continue providing translations and content for everyone."
           </p>
         </div>
 
@@ -429,4 +581,5 @@
   <!-- Main JavaScript File -->
   <script src="script.js"></script>
 </body>
+
 </html>

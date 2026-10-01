@@ -193,19 +193,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- 4. Monthly Goal Progress Bar ---
-  const progressCard = document.getElementById('progressCard');
-  if (progressCard) {
-    const currentVal = parseFloat(progressCard.getAttribute('data-current') || '0');
-    const targetVal = parseFloat(progressCard.getAttribute('data-target') || '20');
+  // --- 4. Goal Progress Bars (Monthly Goal & PC Upgrade Goal) ---
+  const progressCards = document.querySelectorAll('.progress-card');
+  progressCards.forEach(card => {
+    const currentVal = parseFloat(card.getAttribute('data-current') || '0');
+    const targetVal = parseFloat(card.getAttribute('data-target') || '100');
     const percentage = targetVal > 0 ? Math.min(100, Math.max(0, (currentVal / targetVal) * 100)) : 0;
 
-    const progressAmountEl = progressCard.querySelector('.progress-amount');
-    const progressPercentEl = progressCard.querySelector('.progress-percent');
-    const progressFillEl = progressCard.querySelector('.progress-fill');
+    const progressAmountEl = card.querySelector('.progress-amount');
+    const progressPercentEl = card.querySelector('.progress-percent');
+    const progressFillEl = card.querySelector('.progress-fill');
 
     if (progressAmountEl) {
-      progressAmountEl.textContent = `$${currentVal} / $${targetVal}`;
+      const currentFormatted = currentVal.toLocaleString('en-US');
+      const targetFormatted = targetVal.toLocaleString('en-US');
+      progressAmountEl.textContent = `$${currentFormatted} / $${targetFormatted}`;
     }
     if (progressPercentEl) {
       progressPercentEl.textContent = `${Math.round(percentage)}%`;
@@ -216,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
         progressFillEl.style.width = `${percentage}%`;
       });
     }
-  }
+  });
 
 
   // --- 5. Schedule Page Controller ---
