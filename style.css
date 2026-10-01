@@ -357,7 +357,15 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 320px;
+  max-width: 480px;
+}
+
+.row-address-text.row-desc-text {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-width: none;
+  line-height: 1.4;
 }
 
 /* Action Controls (Right side of row) */
