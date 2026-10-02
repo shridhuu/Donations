@@ -198,7 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
   progressCards.forEach(card => {
     const currentVal = parseFloat(card.getAttribute('data-current') || '0');
     const targetVal = parseFloat(card.getAttribute('data-target') || '100');
-    const percentage = targetVal > 0 ? Math.min(100, Math.max(0, (currentVal / targetVal) * 100)) : 0;
+    const rawPercentage = targetVal > 0 ? (currentVal / targetVal) * 100 : 0;
+    const barWidth = Math.min(100, Math.max(0, rawPercentage));
 
     const progressAmountEl = card.querySelector('.progress-amount');
     const progressPercentEl = card.querySelector('.progress-percent');
@@ -210,12 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
       progressAmountEl.textContent = `$${currentFormatted} / $${targetFormatted}`;
     }
     if (progressPercentEl) {
-      progressPercentEl.textContent = `${Math.round(percentage)}%`;
+      progressPercentEl.textContent = `${Math.round(rawPercentage)}%`;
     }
     if (progressFillEl) {
       // Trigger animation on next frame
       requestAnimationFrame(() => {
-        progressFillEl.style.width = `${percentage}%`;
+        progressFillEl.style.width = `${barWidth}%`;
       });
     }
   });
