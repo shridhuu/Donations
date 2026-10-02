@@ -707,6 +707,18 @@ body {
   height: 12px;
 }
 
+.donator-badge.badge-top {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.12);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.donator-badge.badge-donator {
+  color: var(--accent-color);
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-glow);
+}
+
 .donator-badge.badge-pc {
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.12);
