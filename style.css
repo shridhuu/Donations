@@ -1508,6 +1508,13 @@ body {
   border-left: 3px solid var(--accent-color);
 }
 
+.inline-emoji {
+  height: 1.35em;
+  width: auto;
+  vertical-align: -0.22em;
+  display: inline-block;
+}
+
 .schedule-empty, .schedule-error {
   grid-column: 1 / -1;
   background: var(--bg-card);
