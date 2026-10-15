@@ -1162,6 +1162,19 @@ body {
   align-self: flex-end;
 }
 
+.spec-badge-bought {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: flex-end;
+}
+
 /* Schedule Day Tabs */
 .day-tabs {
   display: flex;
