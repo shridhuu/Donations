@@ -210,8 +210,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const targetFormatted = targetVal.toLocaleString('en-US');
       progressAmountEl.textContent = `$${currentFormatted} / $${targetFormatted}`;
     }
-    if (progressPercentEl) {
-      progressPercentEl.textContent = `${Math.round(rawPercentage)}%`;
+    if (rawPercentage >= 100) {
+      card.classList.add('goal-funded');
+      if (progressPercentEl) {
+        progressPercentEl.innerHTML = `${Math.round(rawPercentage)}% &bull; Funded! 🎉`;
+      }
+    } else {
+      card.classList.remove('goal-funded');
+      if (progressPercentEl) {
+        progressPercentEl.textContent = `${Math.round(rawPercentage)}%`;
+      }
     }
     if (progressFillEl) {
       // Trigger animation on next frame
@@ -385,8 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filteredShows.length === 0) {
         scheduleGrid.innerHTML = `
           <div class="schedule-empty">
-            <i data-lucide="calendar-x"></i>
-            <p>Nothing scheduled for this day right now.</p>
+            <i data-lucide="coffee"></i>
+            <span class="schedule-empty-title">Rest Day &bull; Encoding Backlog</span>
+            <p>No regular releases scheduled for this day. Shridhuu is catching up on school & backlog.</p>
           </div>
         `;
         if (window.lucide) lucide.createIcons();
