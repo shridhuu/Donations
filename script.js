@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rawPercentage >= 100) {
       card.classList.add('goal-funded');
       if (progressPercentEl) {
-        progressPercentEl.innerHTML = `${Math.round(rawPercentage)}% &bull; Funded! 🎉`;
+        progressPercentEl.innerHTML = `${Math.round(rawPercentage)}% &bull; Funded`;
       }
     } else {
       card.classList.remove('goal-funded');
