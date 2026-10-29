@@ -1,0 +1,51 @@
+{
+  "exchangeRate": 84.00,
+  "rateNote": "1 USD ≈ INR 84.00 (based on average deposit rate)",
+  "transactions": [
+    {
+      "date": "2026-10-15",
+      "type": "-",
+      "usd": 120.00,
+      "inr": 10080.00,
+      "account": "Hardware",
+      "proxied": false,
+      "note": "16GB DDR4 3200 MT/s RAM stick (PC Upgrade)"
+    },
+    {
+      "date": "2026-10-02",
+      "type": "+",
+      "usd": 50.00,
+      "inr": 4200.00,
+      "account": "Crypto",
+      "proxied": true,
+      "note": "Donation from X3r/Blade River King"
+    },
+    {
+      "date": "2026-10-02",
+      "type": "+",
+      "usd": 40.00,
+      "inr": 3360.00,
+      "account": "Crypto",
+      "proxied": true,
+      "note": "Donation from Tempershot"
+    },
+    {
+      "date": "2026-10-01",
+      "type": "+",
+      "usd": 10.00,
+      "inr": 840.00,
+      "account": "Crypto",
+      "proxied": true,
+      "note": "Donation from Lonewolf"
+    },
+    {
+      "date": "2026-09-20",
+      "type": "+",
+      "usd": 50.00,
+      "inr": 4200.00,
+      "account": "Crypto",
+      "proxied": false,
+      "note": "Initial PC Upgrade Fund carry-over"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shridhuu | Transparency</title>
+
+  <!-- Google Fonts: JetBrains Mono & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- SheetJS for native XLSX export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+  <div class="site-container">
+
+    <!-- Header Navigation -->
+    <header class="header">
+      <a href="index.html" class="brand-logo">
+        <span class="bracket">[</span>shridhuu<span class="bracket">]</span>
+      </a>
+
+      <div class="nav-group">
+        <nav class="nav-links">
+          <a href="schedule.html" class="nav-link">sched.</a>
+          <span class="nav-separator">|</span>
+          <a href="index.html" class="nav-link">donate</a>
+          <span class="nav-separator">|</span>
+          <a href="transparency.html" class="nav-link active">transp.</a>
+          <span class="nav-separator">|</span>
+          <a href="about.html" class="nav-link">about</a>
+          <span class="nav-separator">|</span>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+        </nav>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
+          <i data-lucide="moon" id="theme-icon"></i>
+          <span id="theme-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+      <!-- Intro Panel Band -->
+      <section class="panel-band" id="transparency">
+        <div class="eyebrow">// Financial Log</div>
+        <h1 class="main-heading"><span class="heading-hash">#</span> transparency</h1>
+        <div class="transparency-intro">
+          <p>
+            I believe in transparency. All transactions are logged below, detailing both received donations and
+            expenditures. Data is presented chronologically and grouped by year and month for clarity.
+          </p>
+          <p>
+            You can export these records for any given year or all-time in CSV or XLSX formats. If you have any
+            questions, feel free to <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener"
+              class="inline-link">contact me</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Note Section -->
+      <section class="transparency-block">
+        <h2 class="about-subtitle">note</h2>
+        <ul class="transparency-note-list">
+          <li>
+            <span class="proxy-badge" title="Proxied / Crypto Wallet"><i data-lucide="repeat"></i></span>
+            <span>indicates a proxied or crypto account, transferred to the main hardware or operational fund
+              immediately.</span>
+          </li>
+          <li>
+            <span>all dates are in utc.</span>
+          </li>
+          <li>
+            <span>actual balance is tracked in indian rupees (inr) and usd, and real value of each transaction can be
+              found on exported data. inr/usd values are converted using the reference deposit rate shown below.</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Current Balance Section -->
+      <section class="transparency-block">
+        <h2 class="about-subtitle">current balance</h2>
+        <div class="balance-display" id="currentBalanceDisplay">
+          <span class="balance-currency">INR <strong id="balanceInr">2,520.00</strong></span>
+          <span class="balance-divider">||</span>
+          <span class="balance-currency">USD <strong id="balanceUsd">30.00</strong></span>
+        </div>
+        <p class="balance-rate-note" id="balanceRateNote">1 USD &approx; INR 84.00 (based on average deposit rate)</p>
+      </section>
+
+      <!-- Transaction Records Section -->
+      <section class="transparency-block" id="transactionRecordsSection">
+        <div class="records-header-row">
+          <h2 class="about-subtitle" style="margin: 0;">transaction records</h2>
+          <div class="export-controls">
+            <span class="export-label">export all-time records as:</span>
+            <button type="button" class="export-btn" data-export-year="all" data-export-format="csv">csv</button>
+            <span class="export-sep">|</span>
+            <button type="button" class="export-btn" data-export-year="all" data-export-format="xlsx">xlsx</button>
+          </div>
+        </div>
+
+        <!-- Dynamic Year Tables Rendered by script.js -->
+        <div id="transactionsContainer"></div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>shridhuu &copy; 2026 &bull; Crafted for the Community</p>
+    </footer>
+
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+
+</html>

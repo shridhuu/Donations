@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btn = document.createElement('button');
         btn.className = `day-tab-btn ${day === activeDay ? 'active' : ''}`;
         btn.setAttribute('data-day', day);
-        
+
         let labelText = day === 'nonweekly' ? 'Non-weekly' : day.charAt(0).toUpperCase() + day.slice(1);
         btn.textContent = labelText;
 
@@ -412,8 +412,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const nextReleaseDate = (isCompleted || isRest) ? null : calculateNextReleaseDate(show.day, show.releaseTimeUTC);
         const localTimeFormatted = isRest ? 'Rest Day' : (show.releaseTimeUTC ? formatLocalTime(show.releaseTimeUTC) : 'Non-weekly');
-        const initialCountdown = isCompleted 
-          ? { text: 'Completed', isNow: false } 
+        const initialCountdown = isCompleted
+          ? { text: 'Completed', isNow: false }
           : (isRest ? { text: 'Resting', isNow: false } : formatCountdown(nextReleaseDate));
 
         // Tags HTML
@@ -457,8 +457,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Image thumbnail HTML
-        const imageHtml = show.image 
-          ? `<img src="${show.image}" alt="${show.show || 'Show Poster'}" class="schedule-thumb" loading="lazy" onerror="this.style.display='none'">` 
+        const imageHtml = show.image
+          ? `<img src="${show.image}" alt="${show.show || 'Show Poster'}" class="schedule-thumb" loading="lazy" onerror="this.style.display='none'">`
           : '';
 
         card.innerHTML = `
@@ -539,5 +539,295 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
+
+  // --- 6. Transparency Page Controller ---
+  const transactionsContainer = document.getElementById('transactionsContainer');
+  if (transactionsContainer) {
+    const DEFAULT_TRANSACTIONS_DATA = {
+      exchangeRate: 84.00,
+      rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
+      transactions: [
+        {
+          date: '2026-10-15',
+          type: '-',
+          usd: 120.00,
+          inr: 10080.00,
+          account: 'Hardware',
+          proxied: false,
+          note: '16GB DDR4 3200 MT/s RAM stick (PC Upgrade)'
+        },
+        {
+          date: '2026-10-02',
+          type: '+',
+          usd: 50.00,
+          inr: 4200.00,
+          account: 'Crypto',
+          proxied: true,
+          note: 'Donation from X3r/Blade River King'
+        },
+        {
+          date: '2026-10-02',
+          type: '+',
+          usd: 40.00,
+          inr: 3360.00,
+          account: 'Crypto',
+          proxied: true,
+          note: 'Donation from Tempershot'
+        },
+        {
+          date: '2026-10-01',
+          type: '+',
+          usd: 10.00,
+          inr: 840.00,
+          account: 'Crypto',
+          proxied: true,
+          note: 'Donation from Lonewolf'
+        },
+        {
+          date: '2026-09-20',
+          type: '+',
+          usd: 50.00,
+          inr: 4200.00,
+          account: 'Crypto',
+          proxied: false,
+          note: 'Initial PC Upgrade Fund carry-over'
+        }
+      ]
+    };
+
+    const MONTH_NAMES = [
+      'january', 'february', 'march', 'april', 'may', 'june',
+      'july', 'august', 'september', 'october', 'november', 'december'
+    ];
+
+    let allNormalizedTransactions = [];
+
+    function formatCurrency(val) {
+      return Number(val || 0).toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
+    }
+
+    function normalizeTransactions(rawData) {
+      const rate = parseFloat(rawData.exchangeRate || 84.00);
+      const list = Array.isArray(rawData.transactions) ? rawData.transactions : [];
+
+      return list
+        .map(tx => {
+          const dateStr = String(tx.date || '2026-01-01');
+          const parts = dateStr.split('-');
+          const year = parts[0] || '2026';
+          const monthIdx = Math.max(0, Math.min(11, parseInt(parts[1] || '1', 10) - 1));
+          const dayNum = parseInt(parts[2] || '1', 10);
+          const usdVal = parseFloat(tx.usd || 0);
+          const inrVal = tx.inr !== undefined ? parseFloat(tx.inr) : usdVal * rate;
+
+          return {
+            date: dateStr,
+            year,
+            monthIdx,
+            monthName: MONTH_NAMES[monthIdx],
+            dayNum,
+            type: tx.type === '-' ? '-' : '+',
+            usd: usdVal,
+            inr: inrVal,
+            account: tx.account || 'Crypto',
+            proxied: Boolean(tx.proxied),
+            note: tx.note || ''
+          };
+        })
+        .sort((a, b) => b.date.localeCompare(a.date));
+    }
+
+    function renderTransparencyPage(rawData) {
+      allNormalizedTransactions = normalizeTransactions(rawData);
+
+      // Calculate net balance unless explicitly overridden
+      let totalUsd = 0;
+      let totalInr = 0;
+      allNormalizedTransactions.forEach(tx => {
+        if (tx.type === '+') {
+          totalUsd += tx.usd;
+          totalInr += tx.inr;
+        } else {
+          totalUsd -= tx.usd;
+          totalInr -= tx.inr;
+        }
+      });
+
+      if (rawData.currentBalanceUSD !== undefined) totalUsd = parseFloat(rawData.currentBalanceUSD);
+      if (rawData.currentBalanceINR !== undefined) totalInr = parseFloat(rawData.currentBalanceINR);
+
+      const balanceInrEl = document.getElementById('balanceInr');
+      const balanceUsdEl = document.getElementById('balanceUsd');
+      const balanceRateNoteEl = document.getElementById('balanceRateNote');
+
+      if (balanceInrEl) balanceInrEl.textContent = formatCurrency(totalInr);
+      if (balanceUsdEl) balanceUsdEl.textContent = formatCurrency(totalUsd);
+      if (balanceRateNoteEl && rawData.rateNote) {
+        balanceRateNoteEl.textContent = rawData.rateNote;
+      }
+
+      // Group by year -> month
+      const yearsMap = new Map();
+      allNormalizedTransactions.forEach(tx => {
+        if (!yearsMap.has(tx.year)) {
+          yearsMap.set(tx.year, new Map());
+        }
+        const monthsMap = yearsMap.get(tx.year);
+        if (!monthsMap.has(tx.monthName)) {
+          monthsMap.set(tx.monthName, []);
+        }
+        monthsMap.get(tx.monthName).push(tx);
+      });
+
+      transactionsContainer.innerHTML = '';
+
+      yearsMap.forEach((monthsMap, year) => {
+        const yearBlock = document.createElement('div');
+        yearBlock.className = 'year-record-block';
+
+        let tbodyHtml = '';
+        monthsMap.forEach((txList, monthName) => {
+          tbodyHtml += `
+            <tr class="tx-month-row">
+              <td colspan="6">${monthName}</td>
+            </tr>
+          `;
+          txList.forEach(tx => {
+            const rowClass = tx.type === '-' ? 'tx-negative' : 'tx-positive';
+            const proxyBadgeHtml = tx.proxied
+              ? `<span class="proxy-badge" title="Proxied / Crypto account"><i data-lucide="repeat"></i></span>`
+              : '';
+            tbodyHtml += `
+              <tr class="tx-row ${rowClass}">
+                <td class="col-date">${tx.dayNum}</td>
+                <td class="col-type">${tx.type}</td>
+                <td class="col-usd">${formatCurrency(tx.usd)}</td>
+                <td class="col-inr">${formatCurrency(tx.inr)}</td>
+                <td class="col-account">
+                  <span class="account-cell-inner">
+                    <span>${tx.account}</span>
+                    ${proxyBadgeHtml}
+                  </span>
+                </td>
+                <td class="col-note">${tx.note}</td>
+              </tr>
+            `;
+          });
+        });
+
+        yearBlock.innerHTML = `
+          <div class="year-header-row">
+            <h3 class="year-heading"><span class="year-hash">###</span> ${year}</h3>
+            <div class="export-controls">
+              <span class="export-label">export as:</span>
+              <button type="button" class="export-btn" data-export-year="${year}" data-export-format="csv">csv</button>
+              <span class="export-sep">|</span>
+              <button type="button" class="export-btn" data-export-year="${year}" data-export-format="xlsx">xlsx</button>
+            </div>
+          </div>
+          <div class="tx-table-wrapper">
+            <table class="tx-table">
+              <thead>
+                <tr>
+                  <th class="col-date">date</th>
+                  <th class="col-type">type</th>
+                  <th class="col-usd">usd</th>
+                  <th class="col-inr">inr</th>
+                  <th class="col-account">account</th>
+                  <th class="col-note">note</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${tbodyHtml}
+              </tbody>
+            </table>
+          </div>
+        `;
+
+        transactionsContainer.appendChild(yearBlock);
+      });
+
+      if (window.lucide) {
+        lucide.createIcons();
+      }
+    }
+
+    function exportRecords(yearFilter, format) {
+      const filtered = yearFilter === 'all'
+        ? allNormalizedTransactions
+        : allNormalizedTransactions.filter(tx => tx.year === String(yearFilter));
+
+      const filenameBase = `shridhuu-transparency-${yearFilter === 'all' ? 'all-time' : yearFilter}`;
+
+      if (format === 'xlsx' && window.XLSX) {
+        const rows = filtered.map(tx => ({
+          Date: tx.date,
+          Type: tx.type,
+          USD: Number(tx.usd.toFixed(2)),
+          INR: Number(tx.inr.toFixed(2)),
+          Account: tx.account,
+          Proxied: tx.proxied ? 'Yes' : 'No',
+          Note: tx.note
+        }));
+        const worksheet = window.XLSX.utils.json_to_sheet(rows);
+        const workbook = window.XLSX.utils.book_new();
+        window.XLSX.utils.book_append_sheet(workbook, worksheet, 'Transactions');
+        window.XLSX.writeFile(workbook, `${filenameBase}.xlsx`);
+        return;
+      }
+
+      // CSV export (or fallback if SheetJS unavailable)
+      const headers = ['Date', 'Type', 'USD', 'INR', 'Account', 'Proxied', 'Note'];
+      const csvLines = [headers.join(',')];
+      filtered.forEach(tx => {
+        const escapedNote = `"${String(tx.note).replace(/"/g, '""')}"`;
+        const escapedAccount = `"${String(tx.account).replace(/"/g, '""')}"`;
+        csvLines.push([
+          tx.date,
+          tx.type,
+          tx.usd.toFixed(2),
+          tx.inr.toFixed(2),
+          escapedAccount,
+          tx.proxied ? 'Yes' : 'No',
+          escapedNote
+        ].join(','));
+      });
+
+      const blob = new Blob([csvLines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${filenameBase}.${format === 'xlsx' ? 'csv' : format}`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    document.addEventListener('click', e => {
+      const exportBtn = e.target.closest('.export-btn');
+      if (!exportBtn) return;
+      const year = exportBtn.getAttribute('data-export-year') || 'all';
+      const format = exportBtn.getAttribute('data-export-format') || 'csv';
+      exportRecords(year, format);
+    });
+
+    fetch('data/transactions.json')
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then(data => {
+        renderTransparencyPage(data);
+      })
+      .catch(() => {
+        renderTransparencyPage(DEFAULT_TRANSACTIONS_DATA);
+      });
+  }
+
 });
+
 
