@@ -545,8 +545,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (transactionsContainer) {
     const DEFAULT_TRANSACTIONS_DATA = {
       exchangeRate: 84.00,
-      currentBalanceUSD: 0.00,
-      currentBalanceINR: 0.00,
       rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
       transactions: [
         {
@@ -584,6 +582,15 @@ document.addEventListener('DOMContentLoaded', () => {
           account: 'Crypto',
           proxied: true,
           note: 'Donation from Lonewolf'
+        },
+        {
+          date: '2026-09-20',
+          type: '+',
+          usd: 20.00,
+          inr: 1680.00,
+          account: 'Crypto',
+          proxied: false,
+          note: 'Initial PC Upgrade Fund carry-over'
         }
       ]
     };
