@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shridhuu | Transparency</title>
+  <title>Shridhuu | Transparency & Ledger</title>
 
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Main CSS -->
@@ -60,63 +60,81 @@
       <!-- Intro Panel Band -->
       <section class="panel-band" id="transparency">
         <div class="eyebrow">// Financial Log</div>
-        <h1 class="main-heading"><span class="heading-hash">#</span> transparency</h1>
-        <div class="transparency-intro">
-          <p>
-            I believe in transparency. All transactions are logged below, detailing both received donations and
-            expenditures. Data is presented chronologically and grouped by year and month for clarity.
-          </p>
-          <p>
-            You can export these records for any given year or all-time in CSV or XLSX formats. If you have any
-            questions, feel free to <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener"
-              class="inline-link">contact me</a>.
-          </p>
-        </div>
+        <h1 class="main-heading">Transparency &amp; Ledger.</h1>
+        <p class="intro-desc">
+          Every donation received and hardware or operational expense is logged below chronologically. Records can be
+          exported for any year or all-time in CSV or XLSX format. Questions? Reach out on
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="inline-link">Discord</a>.
+        </p>
       </section>
 
-      <!-- Note Section -->
-      <section class="transparency-block">
-        <h2 class="about-subtitle">note</h2>
-        <ul class="transparency-note-list">
-          <li>
-            <span class="proxy-badge" title="Proxied / Crypto Wallet"><i data-lucide="repeat"></i></span>
-            <span>indicates a proxied or crypto account, transferred to the main hardware or operational fund
-              immediately.</span>
-          </li>
-          <li>
-            <span>all dates are in utc.</span>
-          </li>
-          <li>
-            <span>actual balance is tracked in indian rupees (inr) and usd, and real value of each transaction can be
-              found on exported data. inr/usd values are converted using the reference deposit rate shown below.</span>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Current Balance Section -->
-      <section class="transparency-block">
-        <h2 class="about-subtitle">current balance</h2>
-        <div class="balance-display" id="currentBalanceDisplay">
-          <span class="balance-currency">INR <strong id="balanceInr">0.00</strong></span>
-          <span class="balance-divider">||</span>
-          <span class="balance-currency">USD <strong id="balanceUsd">0.00</strong></span>
+      <!-- Balance & Summary Overview Cards -->
+      <section class="ledger-overview-grid">
+        <!-- Current Balance Card -->
+        <div class="perk-card balance-overview-card">
+          <div class="perk-header">
+            <span class="perk-icon-wrapper"><i data-lucide="wallet"></i></span>
+            <span>Current Balance</span>
+            <span class="spec-badge target-badge" style="margin-left: auto;">Live Ledger</span>
+          </div>
+          <div class="balance-cards-row">
+            <div class="balance-stat-box">
+              <span class="spec-key">USD Balance</span>
+              <span class="balance-big-val" id="balanceUsd">$0.00</span>
+            </div>
+            <div class="balance-stat-box">
+              <span class="spec-key">INR Equivalent</span>
+              <span class="balance-big-val balance-inr-val" id="balanceInr">&#8377;0.00</span>
+            </div>
+          </div>
+          <div class="balance-totals-row">
+            <span class="tag-pill">Total In: <strong class="text-in" id="totalInUsd">+$120.00</strong></span>
+            <span class="tag-pill">Total Out: <strong class="text-out" id="totalOutUsd">-$120.00</strong></span>
+            <span class="balance-rate-pill" id="balanceRateNote">1 USD &approx; ₹84.00</span>
+          </div>
         </div>
-        <p class="balance-rate-note" id="balanceRateNote">1 USD &approx; INR 84.00 (based on average deposit rate)</p>
+
+        <!-- Ledger Notes Card -->
+        <div class="perk-card">
+          <div class="perk-header">
+            <span class="perk-icon-wrapper"><i data-lucide="info"></i></span>
+            <span>Ledger Notes</span>
+          </div>
+          <ul class="perk-list">
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              <span>All transaction dates are logged in <strong>UTC</strong> and grouped by year and month.</span>
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              <span>Balances are tracked in <strong>INR</strong> and <strong>USD</strong> using an average deposit conversion rate.</span>
+            </li>
+            <li>
+              <i data-lucide="check" class="check-icon"></i>
+              <span>Crypto &amp; UPI donations are allocated directly toward the <strong>PC Upgrade Goal</strong> and subbing tools.</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- Transaction Records Section -->
       <section class="transparency-block" id="transactionRecordsSection">
         <div class="records-header-row">
-          <h2 class="about-subtitle" style="margin: 0;">transaction records</h2>
-          <div class="export-controls">
-            <span class="export-label">export all-time records as:</span>
-            <button type="button" class="export-btn" data-export-year="all" data-export-format="csv">csv</button>
-            <span class="export-sep">|</span>
-            <button type="button" class="export-btn" data-export-year="all" data-export-format="xlsx">xlsx</button>
+          <h2 class="section-title" style="margin-bottom: 0;">Transaction Records</h2>
+          <div class="export-actions-group">
+            <span class="export-label">Export All-Time:</span>
+            <button type="button" class="btn-copy export-btn" data-export-year="all" data-export-format="csv">
+              <i data-lucide="download" style="width:14px; height:14px;"></i>
+              <span>CSV</span>
+            </button>
+            <button type="button" class="btn-copy export-btn" data-export-year="all" data-export-format="xlsx">
+              <i data-lucide="file-spreadsheet" style="width:14px; height:14px;"></i>
+              <span>XLSX</span>
+            </button>
           </div>
         </div>
 
-        <!-- Dynamic Year Tables Rendered by script.js -->
+        <!-- Dynamic Year Cards Rendered by script.js -->
         <div id="transactionsContainer"></div>
       </section>
 
@@ -134,4 +152,3 @@
 </body>
 
 </html>
-

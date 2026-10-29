@@ -643,14 +643,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderTransparencyPage(rawData) {
       allNormalizedTransactions = normalizeTransactions(rawData);
 
-      // Calculate net balance unless explicitly overridden
+      // Calculate totals & net balance
+      let totalInUsd = 0;
+      let totalOutUsd = 0;
       let totalUsd = 0;
       let totalInr = 0;
       allNormalizedTransactions.forEach(tx => {
         if (tx.type === '+') {
+          totalInUsd += tx.usd;
           totalUsd += tx.usd;
           totalInr += tx.inr;
         } else {
+          totalOutUsd += tx.usd;
           totalUsd -= tx.usd;
           totalInr -= tx.inr;
         }
@@ -661,12 +665,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const balanceInrEl = document.getElementById('balanceInr');
       const balanceUsdEl = document.getElementById('balanceUsd');
+      const totalInUsdEl = document.getElementById('totalInUsd');
+      const totalOutUsdEl = document.getElementById('totalOutUsd');
       const balanceRateNoteEl = document.getElementById('balanceRateNote');
 
-      if (balanceInrEl) balanceInrEl.textContent = formatCurrency(totalInr);
-      if (balanceUsdEl) balanceUsdEl.textContent = formatCurrency(totalUsd);
-      if (balanceRateNoteEl && rawData.rateNote) {
-        balanceRateNoteEl.textContent = rawData.rateNote;
+      if (balanceInrEl) balanceInrEl.textContent = `\u20B9${formatCurrency(totalInr)}`;
+      if (balanceUsdEl) balanceUsdEl.textContent = `$${formatCurrency(totalUsd)}`;
+      if (totalInUsdEl) totalInUsdEl.textContent = `+$${formatCurrency(totalInUsd)}`;
+      if (totalOutUsdEl) totalOutUsdEl.textContent = `-$${formatCurrency(totalOutUsd)}`;
+      if (balanceRateNoteEl && rawData.exchangeRate) {
+        balanceRateNoteEl.textContent = `1 USD \u2248 \u20B9${Number(rawData.exchangeRate).toFixed(2)}`;
       }
 
       // Group by year -> month
@@ -686,31 +694,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       yearsMap.forEach((monthsMap, year) => {
         const yearBlock = document.createElement('div');
-        yearBlock.className = 'year-record-block';
+        yearBlock.className = 'ledger-year-card';
 
         let tbodyHtml = '';
         monthsMap.forEach((txList, monthName) => {
+          const monthLabel = monthName.charAt(0).toUpperCase() + monthName.slice(1);
           tbodyHtml += `
             <tr class="tx-month-row">
-              <td colspan="6">${monthName}</td>
+              <td colspan="6">
+                <span class="month-row-label"><span class="month-chevron">&gt;</span> ${monthLabel} ${year}</span>
+              </td>
             </tr>
           `;
           txList.forEach(tx => {
-            const rowClass = tx.type === '-' ? 'tx-negative' : 'tx-positive';
-            const proxyBadgeHtml = tx.proxied
-              ? `<span class="proxy-badge" title="Proxied / Crypto account"><i data-lucide="repeat"></i></span>`
-              : '';
+            const isOut = tx.type === '-';
+            const rowClass = isOut ? 'tx-negative' : 'tx-positive';
+            const signPrefix = isOut ? '-' : '+';
+            const typeBadge = isOut
+              ? `<span class="spec-price">Expense</span>`
+              : `<span class="spec-badge-bought">Donation</span>`;
+            const dayPadded = String(tx.dayNum).padStart(2, '0');
+
             tbodyHtml += `
               <tr class="tx-row ${rowClass}">
-                <td class="col-date">${tx.dayNum}</td>
-                <td class="col-type">${tx.type}</td>
-                <td class="col-usd">${formatCurrency(tx.usd)}</td>
-                <td class="col-inr">${formatCurrency(tx.inr)}</td>
+                <td class="col-date">${dayPadded}</td>
+                <td class="col-type">${typeBadge}</td>
+                <td class="col-usd">${signPrefix}$${formatCurrency(tx.usd)}</td>
+                <td class="col-inr">${signPrefix}\u20B9${formatCurrency(tx.inr)}</td>
                 <td class="col-account">
-                  <span class="account-cell-inner">
-                    <span>${tx.account}</span>
-                    ${proxyBadgeHtml}
-                  </span>
+                  <span class="tag-pill">${tx.account}</span>
                 </td>
                 <td class="col-note">${tx.note}</td>
               </tr>
@@ -719,25 +731,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         yearBlock.innerHTML = `
-          <div class="year-header-row">
-            <h3 class="year-heading"><span class="year-hash">###</span> ${year}</h3>
-            <div class="export-controls">
-              <span class="export-label">export as:</span>
-              <button type="button" class="export-btn" data-export-year="${year}" data-export-format="csv">csv</button>
-              <span class="export-sep">|</span>
-              <button type="button" class="export-btn" data-export-year="${year}" data-export-format="xlsx">xlsx</button>
+          <div class="ledger-year-header">
+            <div class="ledger-year-title">
+              <i data-lucide="calendar"></i>
+              <span>${year} Ledger</span>
+              <span class="spec-badge current-badge">${allNormalizedTransactions.filter(t => t.year === year).length} Entries</span>
+            </div>
+            <div class="export-actions-group">
+              <button type="button" class="btn-copy export-btn" data-export-year="${year}" data-export-format="csv">
+                <i data-lucide="download" style="width:13px; height:13px;"></i>
+                <span>CSV</span>
+              </button>
+              <button type="button" class="btn-copy export-btn" data-export-year="${year}" data-export-format="xlsx">
+                <i data-lucide="file-spreadsheet" style="width:13px; height:13px;"></i>
+                <span>XLSX</span>
+              </button>
             </div>
           </div>
           <div class="tx-table-wrapper">
             <table class="tx-table">
               <thead>
                 <tr>
-                  <th class="col-date">date</th>
-                  <th class="col-type">type</th>
-                  <th class="col-usd">usd</th>
-                  <th class="col-inr">inr</th>
-                  <th class="col-account">account</th>
-                  <th class="col-note">note</th>
+                  <th class="col-date">Day</th>
+                  <th class="col-type">Type</th>
+                  <th class="col-usd">USD</th>
+                  <th class="col-inr">INR</th>
+                  <th class="col-account">Channel</th>
+                  <th class="col-note">Description</th>
                 </tr>
               </thead>
               <tbody>
