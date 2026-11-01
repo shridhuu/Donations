@@ -548,6 +548,15 @@ document.addEventListener('DOMContentLoaded', () => {
       rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
       transactions: [
         {
+          date: '2026-11-01',
+          type: '+',
+          usd: 1.00,
+          inr: 84.00,
+          account: 'Crypto',
+          proxied: true,
+          note: 'Donation from Tx~MANO♾️'
+        },
+        {
           date: '2026-10-15',
           type: '-',
           usd: 120.00,
