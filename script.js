@@ -844,7 +844,7 @@ document.addEventListener('DOMContentLoaded', () => {
       exportRecords(year, format);
     });
 
-    fetch('data/transactions.json')
+    fetch('data/transactions.json', { cache: 'no-cache' })
       .then(res => {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         return res.json();
