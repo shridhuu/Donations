@@ -987,7 +987,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scheduleGrid.innerHTML = `
           <div class="schedule-empty">
             <i data-lucide="coffee" aria-hidden="true"></i>
-            <span class="schedule-empty-title">Rest Day &bull; Encoding Backlog</span>
+            <span class="schedule-empty-title">No Regular Releases Today</span>
             <p>No regular releases scheduled for this day. Catching up on school and commissioned batches.</p>
           </div>
         `;
