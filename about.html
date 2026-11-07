@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shridhuu | About & Projects</title>
+  <meta name="description" content="About Shridhuu, workflow, release cadence, and active donghua fansub series.">
+  <title>Shridhuu | About &amp; Projects</title>
 
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- QRCode.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Deferred Scripts (No unused QR library) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="site-container">
 
@@ -30,82 +34,115 @@
       </a>
 
       <div class="nav-group">
-        <nav class="nav-links">
-          <a href="schedule.html" class="nav-link">sched.</a>
-          <span class="nav-separator">|</span>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="schedule.html" class="nav-link">schedule</a>
           <a href="index.html" class="nav-link">donate</a>
-          <span class="nav-separator">|</span>
-          <a href="transparency.html" class="nav-link">transp.</a>
-          <span class="nav-separator">|</span>
-          <a href="about.html" class="nav-link active">about</a>
-          <span class="nav-separator">|</span>
-          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+          <a href="transparency.html" class="nav-link">ledger</a>
+          <a href="about.html" class="nav-link active" aria-current="page">about</a>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link nav-link-ext" aria-label="Discord community (opens in new tab)">
+            <span>discord</span>
+            <i data-lucide="arrow-up-right" class="nav-ext-icon" aria-hidden="true"></i>
+          </a>
         </nav>
 
         <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
-          <i data-lucide="moon" id="theme-icon"></i>
+        <button id="theme-toggle" type="button" class="theme-toggle-btn" title="Cycle color theme" aria-label="Toggle color theme">
+          <i data-lucide="moon" id="theme-icon" aria-hidden="true"></i>
           <span id="theme-label">Dark</span>
         </button>
       </div>
     </header>
 
     <!-- Main Content Area -->
-    <main>
+    <main id="main-content">
 
       <!-- Intro Panel Band -->
       <section class="panel-band" id="about">
         <div class="eyebrow">// About Shridhuu</div>
-        <h1 class="main-heading">Fansubbing & Donghua.</h1>
+        <h1 class="main-heading">Fansubbing &amp; Donghua.</h1>
       </section>
 
       <!-- About Content Section -->
       <section class="about-section">
         <div class="about-prose">
-          <p>Hey, it's me, <strong>Shridhuu</strong>. <img src="https://cdn.discordapp.com/emojis/1321782873501470720.gif?size=48&quality=lossless" alt="Toro BlowKiss" class="inline-emoji"></p>
-          <p>I'm 19-ish (almost 18.5) years old.</p>
-          <p>My birthday is on <strong>May 16</strong>.</p>
-          <p>I use AI tools sometimes, along with manual translation. I also use novels and wikis as references to make sure names and terms are translated correctly. (Sometimes I'm just lazy.)</p>
-          <p>I'll be making subtitles and uploading them here for everyone to enjoy.</p>
+          <p>Hey, it's me, <strong>Shridhuu</strong>. <img src="https://cdn.discordapp.com/emojis/1321782873501470720.gif?size=48&quality=lossless" alt="" width="22" height="22" loading="lazy" decoding="async" onerror="this.style.display='none'" class="inline-emoji"></p>
+          <p>I'm 18.5 (almost 19) years old, and my birthday is on <strong>May 16</strong>.</p>
+          <p>I pair manual translation with AI-assisted drafting, cross-checking source novels and wikis so cultivation realms, sects, and character names stay accurate. (Sometimes I'm just lazy.)</p>
+          <p>All my subtitles are shared free for the community through <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="inline-link">Donghua Central on Discord</a>.</p>
 
-          <h2 class="about-subtitle">Release Schedule</h2>
-          <p>Most releases will be uploaded <strong>on the same day the raw episodes are released</strong>. However, there may occasionally be a delay of <strong>1–3 days</strong> due to school and other commitments.</p>
-          <p>You can <strong>follow the posts</strong> to get notified as soon as I release new subtitles.</p>
+          <h2 class="about-subtitle">Release Cadence</h2>
+          <p>Most episodes go up <strong>on the same day the raws drop</strong> (typically within 3-6 hours). School or exams can occasionally push a release back by <strong>1-3 days</strong>.</p>
+          <p>Check the <a href="schedule.html" class="inline-link">weekly schedule</a> for live local-time countdowns, or grab release ping roles in <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="inline-link">Discord</a> to get notified the moment new subs go live.</p>
 
           <h2 class="about-subtitle">Currently Working On</h2>
           <div class="shows-grid">
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">Renegade Immortal</span>
-                <span class="show-item-sub">from Episode 149</span>
+                <span class="show-item-sub">from Episode 149 &bull; Sundays</span>
               </div>
               <span class="show-status-pill status-ongoing">Ongoing</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">Swallowed Star</span>
-                <span class="show-item-sub">from Episode 233</span>
+                <span class="show-item-sub">from Episode 233 &bull; Mondays</span>
               </div>
               <span class="show-status-pill status-ongoing">Ongoing</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">Perfect World</span>
-                <span class="show-item-sub">from Episode 274</span>
+                <span class="show-item-sub">from Episode 274 &bull; Thursdays</span>
+              </div>
+              <span class="show-status-pill status-ongoing">Ongoing</span>
+            </div>
+            <div class="show-item-card">
+              <div class="show-item-info">
+                <span class="show-item-title">Battle Through the Heavens</span>
+                <span class="show-item-sub">Active release &bull; Saturdays</span>
               </div>
               <span class="show-status-pill status-ongoing">Ongoing</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">A Good Day to Ascend</span>
-                <span class="show-item-sub">from Episode 1</span>
+                <span class="show-item-sub">from Episode 1 &bull; Saturdays</span>
               </div>
               <span class="show-status-pill status-ongoing">Ongoing</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">Beyond Time's Gaze</span>
-                <span class="show-item-sub">from Episode 27</span>
+                <span class="show-item-sub">from Episode 27 &bull; Saturdays</span>
+              </div>
+              <span class="show-status-pill status-ongoing">Ongoing</span>
+            </div>
+            <div class="show-item-card">
+              <div class="show-item-info">
+                <span class="show-item-title">Jade Dynasty</span>
+                <span class="show-item-sub">Active release &bull; Fridays</span>
+              </div>
+              <span class="show-status-pill status-ongoing">Ongoing</span>
+            </div>
+            <div class="show-item-card">
+              <div class="show-item-info">
+                <span class="show-item-title">The Great Ruler</span>
+                <span class="show-item-sub">Active release &bull; Fridays</span>
+              </div>
+              <span class="show-status-pill status-ongoing">Ongoing</span>
+            </div>
+            <div class="show-item-card">
+              <div class="show-item-info">
+                <span class="show-item-title">Golden Curse</span>
+                <span class="show-item-sub">Active release &bull; Sundays</span>
+              </div>
+              <span class="show-status-pill status-ongoing">Ongoing</span>
+            </div>
+            <div class="show-item-card">
+              <div class="show-item-info">
+                <span class="show-item-title">GuAn</span>
+                <span class="show-item-sub">from Episode 1 &bull; Tuesdays</span>
               </div>
               <span class="show-status-pill status-ongoing">Ongoing</span>
             </div>
@@ -118,68 +155,40 @@
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
-                <span class="show-item-title">GuAn</span>
-                <span class="show-item-sub">from Episode 1</span>
+                <span class="show-item-title">The Demon Hunter (Season 3)</span>
+                <span class="show-item-sub">Commissioned by supporter</span>
               </div>
-              <span class="show-status-pill status-ongoing">Ongoing</span>
-            </div>
-            <div class="show-item-card">
-              <div class="show-item-info">
-                <span class="show-item-title">The Demon Hunter &mdash; S3</span>
-                <span class="show-item-sub">Requested by a patron</span>
-              </div>
-              <span class="show-status-pill status-patron">Patron Request</span>
+              <span class="show-status-pill status-patron">Supporter Pick</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
                 <span class="show-item-title">Tales of Herding Gods</span>
-                <span class="show-item-sub">Requested by a patron</span>
+                <span class="show-item-sub">Commissioned by supporter</span>
               </div>
-              <span class="show-status-pill status-patron">Patron Request</span>
+              <span class="show-status-pill status-patron">Supporter Pick</span>
             </div>
             <div class="show-item-card">
               <div class="show-item-info">
-                <span class="show-item-title">Jade Dynasty</span>
-                <span class="show-item-sub">Active release</span>
-              </div>
-              <span class="show-status-pill status-ongoing">Ongoing</span>
-            </div>
-            <div class="show-item-card">
-              <div class="show-item-info">
-                <span class="show-item-title">The Great Ruler</span>
-                <span class="show-item-sub">Active release</span>
-              </div>
-              <span class="show-status-pill status-ongoing">Ongoing</span>
-            </div>
-            <div class="show-item-card">
-              <div class="show-item-info">
-                <span class="show-item-title">Golden Curse</span>
-                <span class="show-item-sub">Active release</span>
-              </div>
-              <span class="show-status-pill status-ongoing">Ongoing</span>
-            </div>
-            <div class="show-item-card">
-              <div class="show-item-info">
-                <span class="show-item-title">Blades of the Guardians &mdash; S2</span>
-                <span class="show-item-sub">Completed</span>
+                <span class="show-item-title">Blades of the Guardians (Season 2)</span>
+                <span class="show-item-sub">Full season subbed</span>
               </div>
               <span class="show-status-pill status-completed">Completed</span>
             </div>
           </div>
-          <p>More series will be added as I pick up new shows.</p>
+          <p>More series get added as seasonal lineups rotate or supporters commission batches.</p>
 
-          <!-- Distinct Callout Box -->
+          <!-- Distinct Callout Box (Full Border, Zero Side-Stripes) -->
           <div class="about-callout-box">
             <div class="about-callout-header">
-              <i data-lucide="quote"></i>
+              <i data-lucide="quote" aria-hidden="true"></i>
               <span>One Last Thing</span>
             </div>
             <p>I don't really care what you think about my subtitles or what you have to say about how I do things. I'll keep making and uploading donghua subtitles for people who want to enjoy these shows.</p>
             <p>So, if you don't like what I'm doing, that's perfectly fine.</p>
             <div class="about-callout-quote">
-              You can fuck off with your opinions. I don't give a flying fuck. <img src="https://cdn.discordapp.com/emojis/1518266536324763698.png?size=48&quality=lossless" alt="bruhsus" class="inline-emoji">
+              You can fuck off with your opinions. I don't give a flying fuck. <img src="https://cdn.discordapp.com/emojis/1518266536324763698.png?size=48&quality=lossless" alt="" width="22" height="22" loading="lazy" decoding="async" onerror="this.style.display='none'" class="inline-emoji">
             </div>
-            <p>I'm here to make subtitles and enjoy donghua. That's it. <img src="https://cdn.discordapp.com/emojis/927776073234661437.gif?size=48&quality=lossless" alt="blink confused cute kanna" class="inline-emoji"></p>
+            <p>I'm here to make subtitles and enjoy donghua. That's it. <img src="https://cdn.discordapp.com/emojis/927776073234661437.gif?size=48&quality=lossless" alt="" width="22" height="22" loading="lazy" decoding="async" onerror="this.style.display='none'" class="inline-emoji"></p>
           </div>
 
         </div>
@@ -194,7 +203,8 @@
 
   </div>
 
-  <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <!-- Accessible Live Toast Notification -->
+  <div id="toast" class="tooltip-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
+
 </html>

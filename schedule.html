@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Weekly donghua subtitle release schedule for Shridhuu with automatic local timezone conversion and live countdowns.">
   <title>Shridhuu | Release Schedule</title>
 
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700;800&display=swap"
+    rel="stylesheet">
 
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- QRCode.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <!-- Deferred Scripts (No unused QR library) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
+
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="site-container">
 
@@ -30,48 +34,53 @@
       </a>
 
       <div class="nav-group">
-        <nav class="nav-links">
-          <a href="schedule.html" class="nav-link active">sched.</a>
-          <span class="nav-separator">|</span>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="schedule.html" class="nav-link active" aria-current="page">schedule</a>
           <a href="index.html" class="nav-link">donate</a>
-          <span class="nav-separator">|</span>
-          <a href="transparency.html" class="nav-link">transp.</a>
-          <span class="nav-separator">|</span>
+          <a href="transparency.html" class="nav-link">ledger</a>
           <a href="about.html" class="nav-link">about</a>
-          <span class="nav-separator">|</span>
-          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link nav-link-ext" aria-label="Discord community (opens in new tab)">
+            <span>discord</span>
+            <i data-lucide="arrow-up-right" class="nav-ext-icon" aria-hidden="true"></i>
+          </a>
         </nav>
 
         <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
-          <i data-lucide="moon" id="theme-icon"></i>
+        <button id="theme-toggle" type="button" class="theme-toggle-btn" title="Cycle color theme" aria-label="Toggle color theme">
+          <i data-lucide="moon" id="theme-icon" aria-hidden="true"></i>
           <span id="theme-label">Dark</span>
         </button>
       </div>
     </header>
 
     <!-- Main Content Area -->
-    <main>
+    <main id="main-content">
 
       <!-- Intro Panel Band -->
       <section class="panel-band" id="schedule">
         <div class="eyebrow">// Release Schedule</div>
-        <h1 class="main-heading">Weekly Lineup.</h1>
+        <div class="schedule-hero-row">
+          <h1 class="main-heading">Weekly Lineup.</h1>
+          <span class="tz-indicator-pill" id="localTzBadge">Local Timezone</span>
+        </div>
         <p class="intro-desc">
-          Pick a day to see what's releasing. Times are shown in your local time zone, and each card counts down live to the next release.
+          Pick a day or view the full week. Release times convert automatically to your local clock and count down live. New subtitle drops are announced in <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="inline-link">Discord</a>.
         </p>
       </section>
 
       <!-- Schedule Section -->
-      <section class="schedule-section">
-        <!-- Day Filter Tabs -->
-        <div class="day-tabs" id="dayTabs">
+      <section class="schedule-section" aria-label="Show release schedule">
+        <!-- Accessible Day Filter Tabs -->
+        <div class="day-tabs" id="dayTabs" role="tablist" aria-label="Filter releases by day">
           <!-- Dynamic Tabs Rendered by script.js -->
         </div>
 
         <!-- Schedule Cards Grid -->
-        <div class="schedule-grid" id="scheduleGrid">
-          <!-- Dynamic Cards Rendered by script.js -->
+        <div class="schedule-grid" id="scheduleGrid" role="tabpanel" aria-live="polite">
+          <div class="schedule-empty">
+            <i data-lucide="loader" aria-hidden="true"></i>
+            <span class="schedule-empty-title">Loading weekly lineup...</span>
+          </div>
         </div>
       </section>
 
@@ -84,10 +93,8 @@
 
   </div>
 
-  <!-- Tooltip Toast Notification -->
-  <div id="toast" class="tooltip-toast">Address copied to clipboard!</div>
-
-  <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <!-- Accessible Live Toast Notification -->
+  <div id="toast" class="tooltip-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
+
 </html>

@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shridhuu | Transparency & Ledger</title>
+  <meta name="description" content="Public financial ledger of all donations received and hardware or subbing expenses for Shridhuu, exportable as CSV or XLSX.">
+  <title>Shridhuu | Transparency &amp; Ledger</title>
 
   <!-- Google Fonts: JetBrains Mono & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,14 +17,13 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <!-- SheetJS for native XLSX export -->
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <!-- Deferred Scripts (SheetJS is lazy-loaded only when exporting XLSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.475.0/dist/umd/lucide.min.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <div class="site-container">
 
@@ -34,55 +34,53 @@
       </a>
 
       <div class="nav-group">
-        <nav class="nav-links">
-          <a href="schedule.html" class="nav-link">sched.</a>
-          <span class="nav-separator">|</span>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="schedule.html" class="nav-link">schedule</a>
           <a href="index.html" class="nav-link">donate</a>
-          <span class="nav-separator">|</span>
-          <a href="transparency.html" class="nav-link active">transp.</a>
-          <span class="nav-separator">|</span>
+          <a href="transparency.html" class="nav-link active" aria-current="page">ledger</a>
           <a href="about.html" class="nav-link">about</a>
-          <span class="nav-separator">|</span>
-          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link">dc</a>
+          <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="nav-link nav-link-ext" aria-label="Discord community (opens in new tab)">
+            <span>discord</span>
+            <i data-lucide="arrow-up-right" class="nav-ext-icon" aria-hidden="true"></i>
+          </a>
         </nav>
 
         <!-- Theme Toggle Button -->
-        <button id="theme-toggle" class="theme-toggle-btn" title="Toggle color theme" aria-label="Toggle theme">
-          <i data-lucide="moon" id="theme-icon"></i>
+        <button id="theme-toggle" type="button" class="theme-toggle-btn" title="Cycle color theme" aria-label="Toggle color theme">
+          <i data-lucide="moon" id="theme-icon" aria-hidden="true"></i>
           <span id="theme-label">Dark</span>
         </button>
       </div>
     </header>
 
     <!-- Main Content Area -->
-    <main>
+    <main id="main-content">
 
       <!-- Intro Panel Band -->
       <section class="panel-band" id="transparency">
         <div class="eyebrow">// Financial Log</div>
         <h1 class="main-heading">Transparency &amp; Ledger.</h1>
         <p class="intro-desc">
-          Every donation received and hardware or operational expense is logged below chronologically. Records can be
-          exported for any year or all-time in CSV or XLSX format. Questions? Reach out on
+          Every donation received and hardware or operational expense is logged chronologically below. Export any year or all-time records in CSV or XLSX format. Questions? Reach out on
           <a href="https://discord.gg/donghuacentral" target="_blank" rel="noopener" class="inline-link">Discord</a>.
         </p>
       </section>
 
-      <!-- Balance & Summary Overview Cards -->
-      <section class="ledger-overview-grid">
+      <!-- Balance & Summary Overview Panels (Flat internal dividers, zero nested cards) -->
+      <section class="ledger-overview-grid" aria-label="Ledger summary">
         <!-- Current Balance Card -->
         <div class="perk-card balance-overview-card">
           <div class="perk-header">
-            <span class="perk-icon-wrapper"><i data-lucide="wallet"></i></span>
+            <span class="perk-icon-wrapper"><i data-lucide="wallet" aria-hidden="true"></i></span>
             <span>Current Balance</span>
             <span class="spec-badge target-badge" style="margin-left: auto;">Live Ledger</span>
           </div>
-          <div class="balance-cards-row">
-            <div class="balance-stat-box">
+          <div class="balance-metrics-split">
+            <div class="balance-metric-col">
               <span class="spec-key">USD Balance</span>
               <span class="balance-big-val" id="balanceUsd">$1.00</span>
             </div>
-            <div class="balance-stat-box">
+            <div class="balance-metric-col">
               <span class="spec-key">INR Equivalent</span>
               <span class="balance-big-val balance-inr-val" id="balanceInr">&#8377;84.00</span>
             </div>
@@ -97,21 +95,21 @@
         <!-- Ledger Notes Card -->
         <div class="perk-card">
           <div class="perk-header">
-            <span class="perk-icon-wrapper"><i data-lucide="info"></i></span>
+            <span class="perk-icon-wrapper"><i data-lucide="info" aria-hidden="true"></i></span>
             <span>Ledger Notes</span>
           </div>
           <ul class="perk-list">
             <li>
-              <i data-lucide="check" class="check-icon"></i>
+              <i data-lucide="check" class="check-icon" aria-hidden="true"></i>
               <span>All transaction dates are logged in <strong>UTC</strong> and grouped by year and month.</span>
             </li>
             <li>
-              <i data-lucide="check" class="check-icon"></i>
+              <i data-lucide="check" class="check-icon" aria-hidden="true"></i>
               <span>Balances are tracked in <strong>INR</strong> and <strong>USD</strong> using an average deposit conversion rate.</span>
             </li>
             <li>
-              <i data-lucide="check" class="check-icon"></i>
-              <span>Crypto &amp; UPI donations are allocated directly toward the <strong>PC Upgrade Goal</strong> and subbing tools.</span>
+              <i data-lucide="check" class="check-icon" aria-hidden="true"></i>
+              <span>Crypto and UPI funds go directly toward the <a href="index.html#pcProgressCard" class="inline-link">PC Upgrade Goal</a> and subbing tools.</span>
             </li>
           </ul>
         </div>
@@ -123,34 +121,34 @@
           <h2 class="section-title" style="margin-bottom: 0;">Transaction Records</h2>
           <div class="export-actions-group">
             <span class="export-label">Export All-Time:</span>
-            <button type="button" class="btn-copy export-btn" data-export-year="all" data-export-format="csv">
-              <i data-lucide="download" style="width:14px; height:14px;"></i>
-              <span>CSV</span>
+            <button type="button" class="btn-action export-btn" data-export-year="all" data-export-format="csv" aria-label="Export all-time records as CSV">
+              <i data-lucide="download" aria-hidden="true"></i>
+              <span>Download CSV</span>
             </button>
-            <button type="button" class="btn-copy export-btn" data-export-year="all" data-export-format="xlsx">
-              <i data-lucide="file-spreadsheet" style="width:14px; height:14px;"></i>
-              <span>XLSX</span>
+            <button type="button" class="btn-action export-btn" data-export-year="all" data-export-format="xlsx" aria-label="Export all-time records as XLSX">
+              <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
+              <span>Download XLSX</span>
             </button>
           </div>
         </div>
 
-        <!-- Dynamic Year Cards Rendered by script.js (Pre-rendered for instant view) -->
+        <!-- Pre-rendered for instant view + hydrated by script.js -->
         <div id="transactionsContainer">
           <div class="ledger-year-card">
             <div class="ledger-year-header">
               <div class="ledger-year-title">
-                <i data-lucide="calendar"></i>
+                <i data-lucide="calendar" aria-hidden="true"></i>
                 <span>2026 Ledger</span>
                 <span class="spec-badge current-badge">6 Entries</span>
               </div>
               <div class="export-actions-group">
-                <button type="button" class="btn-copy export-btn" data-export-year="2026" data-export-format="csv">
-                  <i data-lucide="download" style="width:13px; height:13px;"></i>
-                  <span>CSV</span>
+                <button type="button" class="btn-action export-btn" data-export-year="2026" data-export-format="csv" aria-label="Export 2026 records as CSV">
+                  <i data-lucide="download" aria-hidden="true"></i>
+                  <span>2026 CSV</span>
                 </button>
-                <button type="button" class="btn-copy export-btn" data-export-year="2026" data-export-format="xlsx">
-                  <i data-lucide="file-spreadsheet" style="width:13px; height:13px;"></i>
-                  <span>XLSX</span>
+                <button type="button" class="btn-action export-btn" data-export-year="2026" data-export-format="xlsx" aria-label="Export 2026 records as XLSX">
+                  <i data-lucide="file-spreadsheet" aria-hidden="true"></i>
+                  <span>2026 XLSX</span>
                 </button>
               </div>
             </div>
@@ -158,12 +156,12 @@
               <table class="tx-table">
                 <thead>
                   <tr>
-                    <th class="col-date">Day</th>
-                    <th class="col-type">Type</th>
-                    <th class="col-usd">USD</th>
-                    <th class="col-inr">INR</th>
-                    <th class="col-account">Channel</th>
-                    <th class="col-note">Description</th>
+                    <th scope="col" class="col-date">Day</th>
+                    <th scope="col" class="col-type">Type</th>
+                    <th scope="col" class="col-usd">USD</th>
+                    <th scope="col" class="col-inr">INR</th>
+                    <th scope="col" class="col-account">Channel</th>
+                    <th scope="col" class="col-note">Description</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -251,8 +249,8 @@
 
   </div>
 
-  <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <!-- Accessible Live Toast Notification -->
+  <div id="toast" class="tooltip-toast" role="status" aria-live="polite" aria-atomic="true"></div>
 </body>
 
 </html>

@@ -1,5 +1,7 @@
 {
   "exchangeRate": 84.00,
+  "monthlyTarget": 50,
+  "pcTarget": 1000,
   "rateNote": "1 USD ≈ INR 84.00 (based on average deposit rate)",
   "transactions": [
     {
@@ -9,6 +11,7 @@
       "inr": 84.00,
       "account": "Crypto",
       "proxied": true,
+      "donor": "Tx~MANO♾️",
       "note": "Donation from Tx~MANO♾️"
     },
     {
@@ -18,6 +21,7 @@
       "inr": 10080.00,
       "account": "Hardware",
       "proxied": false,
+      "donor": null,
       "note": "16GB DDR4 3200 MT/s RAM stick (PC Upgrade)"
     },
     {
@@ -27,6 +31,7 @@
       "inr": 4200.00,
       "account": "Crypto",
       "proxied": true,
+      "donor": "X3r/Blade River King",
       "note": "Donation from X3r/Blade River King"
     },
     {
@@ -36,6 +41,7 @@
       "inr": 3360.00,
       "account": "Crypto",
       "proxied": true,
+      "donor": "Tempershot",
       "note": "Donation from Tempershot"
     },
     {
@@ -45,6 +51,7 @@
       "inr": 840.00,
       "account": "Crypto",
       "proxied": true,
+      "donor": "Lonewolf",
       "note": "Donation from Lonewolf"
     },
     {
@@ -54,6 +61,7 @@
       "inr": 1680.00,
       "account": "Crypto",
       "proxied": false,
+      "donor": null,
       "note": "Initial PC Upgrade Fund carry-over"
     }
   ]
