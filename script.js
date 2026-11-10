@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
     transactions: [
       {
+        date: '2026-11-10',
+        type: '+',
+        usd: 100.00,
+        inr: 8400.00,
+        account: 'Crypto',
+        proxied: true,
+        donor: 'DrunkenMoon',
+        note: 'Donation from DrunkenMoon'
+      },
+      {
         date: '2026-11-01',
         type: '+',
         usd: 1.00,
