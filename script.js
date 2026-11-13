@@ -18,6 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
     transactions: [
       {
+        date: '2026-11-13',
+        type: '+',
+        usd: 15.00,
+        inr: 1260.00,
+        account: 'Crypto',
+        proxied: true,
+        donor: 'Tempershot',
+        note: 'Donation from Tempershot'
+      },
+      {
         date: '2026-11-10',
         type: '+',
         usd: 100.00,
