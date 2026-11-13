@@ -12,16 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const DEFAULT_TRANSACTIONS_DATA = {
-    exchangeRate: 84.00,
+    exchangeRate: 90.00,
     monthlyTarget: 50,
     pcTarget: 1000,
-    rateNote: '1 USD \u2248 INR 84.00 (based on average deposit rate)',
+    rateNote: '1 USD \u2248 INR 90.00 (based on average deposit rate)',
     transactions: [
       {
         date: '2026-11-13',
         type: '+',
         usd: 15.00,
-        inr: 1260.00,
+        inr: 1350.00,
         account: 'Crypto',
         proxied: true,
         donor: 'Tempershot',
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-11-10',
         type: '+',
         usd: 100.00,
-        inr: 8400.00,
+        inr: 9000.00,
         account: 'Crypto',
         proxied: true,
         donor: 'DrunkenMoon',
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-11-01',
         type: '+',
         usd: 1.00,
-        inr: 84.00,
+        inr: 90.00,
         account: 'Crypto',
         proxied: true,
         donor: 'Tx~MANO\u267E\uFE0F',
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-10-15',
         type: '-',
         usd: 120.00,
-        inr: 10080.00,
+        inr: 10800.00,
         account: 'Hardware',
         proxied: false,
         donor: null,
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-10-02',
         type: '+',
         usd: 50.00,
-        inr: 4200.00,
+        inr: 4500.00,
         account: 'Crypto',
         proxied: true,
         donor: 'X3r/Blade River King',
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-10-02',
         type: '+',
         usd: 40.00,
-        inr: 3360.00,
+        inr: 3600.00,
         account: 'Crypto',
         proxied: true,
         donor: 'Tempershot',
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-10-01',
         type: '+',
         usd: 10.00,
-        inr: 840.00,
+        inr: 900.00,
         account: 'Crypto',
         proxied: true,
         donor: 'Lonewolf',
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         date: '2026-09-20',
         type: '+',
         usd: 20.00,
-        inr: 1680.00,
+        inr: 1800.00,
         account: 'Crypto',
         proxied: false,
         donor: null,
@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function normalizeTransactions(rawData) {
-    const rate = parseFloat(rawData.exchangeRate || 84.00);
+    const rate = parseFloat(rawData.exchangeRate || 90.00);
     const list = Array.isArray(rawData.transactions) ? rawData.transactions : [];
 
     return list
