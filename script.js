@@ -133,6 +133,11 @@ document.addEventListener('DOMContentLoaded', () => {
     htmlEl.setAttribute('data-theme', effectiveTheme);
     localStorage.setItem('fansub_theme', theme);
 
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', effectiveTheme === 'light' ? '#f8fafc' : '#0a0b0e');
+    }
+
     if (themeToggleBtn && themeLabel) {
       const iconName = theme === 'dark' ? 'moon' : (theme === 'light' ? 'sun' : 'monitor');
       const labelText = theme === 'dark' ? 'Dark' : (theme === 'light' ? 'Light' : 'System');

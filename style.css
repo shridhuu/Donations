@@ -662,7 +662,7 @@ body {
 
 .spec-badge {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
@@ -714,7 +714,7 @@ body {
 
 .spec-key {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   text-transform: uppercase;
   font-weight: 600;
@@ -735,7 +735,7 @@ body {
 
 .spec-price {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
   background: var(--accent-subtle);
@@ -748,7 +748,7 @@ body {
 
 .spec-badge-reuse {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--status-sky-fg);
   background: var(--status-sky-bg);
@@ -761,7 +761,7 @@ body {
 
 .spec-badge-bought {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--status-emerald-fg);
   background: var(--status-emerald-bg);
@@ -802,7 +802,7 @@ body {
 
 .build-progress-badge {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
   background: var(--accent-subtle);
@@ -824,7 +824,7 @@ body {
   align-items: center;
   gap: 0.4rem;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--status-gold-fg);
   background: var(--status-gold-bg);
@@ -934,7 +934,7 @@ body {
 
 .badge-recommended {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.12rem 0.48rem;
   border-radius: 999px;
@@ -947,7 +947,7 @@ body {
 
 .chain-pill {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 0.1rem 0.45rem;
   border-radius: 4px;
@@ -1114,7 +1114,7 @@ body {
   background: var(--badge-disabled-bg);
   color: var(--badge-disabled-text);
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   padding: 0.12rem 0.45rem;
   border-radius: 4px;
   text-transform: uppercase;
@@ -1252,7 +1252,7 @@ body {
 .perk-featured-badge {
   margin-left: auto;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent-color);
   background: var(--accent-subtle);
@@ -1439,7 +1439,7 @@ body {
 
 .donator-badge {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 0.12rem 0.45rem;
   border-radius: 4px;
@@ -1485,9 +1485,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   border-top: 1px dashed var(--border-color);
   padding-top: 0.65rem;
@@ -1496,7 +1497,7 @@ body {
 
 .donator-rank-tag {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.12rem 0.48rem;
   border-radius: 999px;
@@ -1739,7 +1740,7 @@ body {
 
 .schedule-countdown-badge {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.22rem 0.6rem;
   border-radius: 999px;
@@ -1836,7 +1837,7 @@ body {
 
 .tag-pill {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 600;
   padding: 0.18rem 0.52rem;
   border-radius: var(--radius-sm);
@@ -1978,7 +1979,7 @@ body {
 
 .show-status-pill {
   font-family: var(--font-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   font-weight: 700;
   padding: 0.14rem 0.5rem;
   border-radius: 999px;
@@ -2212,7 +2213,7 @@ body {
 .tx-table thead th {
   background: var(--bg-card);
   color: var(--text-muted);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
